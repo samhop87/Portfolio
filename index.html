@@ -2,20 +2,30 @@
 <html>
 <head>
     <title>SamHop</title>
-    <link rel=stylesheet href="main.css">
+    <link rel=stylesheet href="output.css">
     <link href="https://fonts.googleapis.com/css?family=Monoton&display=swap" rel="stylesheet">
-
 </head>
 <body>
-<div class="landing">
-    <div class="container">
-        <div class="declaration">
-            <h4>Welcome to</h4>
-            <h1 class="title">SamHop.co.uk</h1>
-            <p>A portfolio for Sam Hopkinson</p>
-        </div>
+<div class="h-screen w-screen">
+
+    <div class="container flex h-full" id="title" v-cloak>
+        <transition
+                appear
+                v-on:before-appear="beforeAppear"
+                v-on:after-appear="afterAppear"
+                name="fade"
+                mode="out-in"
+        >
+            <div id="declaration" class="declaration flex flex-col justify-center">
+                <h4>Welcome to</h4>
+                <h1 class="title font-bold text-6xl">SamHop.co.uk</h1>
+                <p>A portfolio for Sam Hopkinson</p>
+            </div>
+        </transition>
     </div>
 </div>
 
 </body>
+<script src="vue.js"></script>
+<script src="scripts.js"></script>
 </html>
