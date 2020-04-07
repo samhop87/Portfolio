@@ -8,11 +8,34 @@ new Vue({
             // document.getElementById("title").style.color = "blue"
         },
         afterAppear: function(element) {
+            let title = document.getElementById("title");
             let titleChild = document.getElementById("declaration");
+            let removeTitle = document.getElementById("removeTitle");
+            let removeTag = document.getElementById("removeTag");
+            let menu = document.getElementById("menu");
 
-            // TODO: Toggle a data attribute to show that the animation has finished, and bind a class to the title element, so that it adds a class on the transition.
+            setTimeout(function () {
+                Velocity(
+                    titleChild,
+                    { opacity: 0 }
+                )
+            }, 0)
 
-            titleChild.classList.remove("justify-center");
+            setTimeout(function () {
+                title.classList.remove("h-full")
+                titleChild.classList.add("mt-8")
+                menu.classList.add("mt-8")
+                removeTitle.classList.add("hidden")
+                removeTag.classList.add("hidden")
+                menu.style.opacity = "0";
+                menu.classList.remove("hidden")
+                }, 500)
+
+            setTimeout(function () {
+                Velocity(titleChild, { opacity: 0.5})
+                Velocity(menu, {opacity: 0.5})
+
+            }, 1000)
         }
     }
 })
