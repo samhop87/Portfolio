@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="h-screen w-screen">
-    <div class="container flex h-full justify-between" id="title" v-cloak>
+    <div class="container flex h-full justify-between flex-wrap md:flex-no-wrap" id="title" v-cloak>
         <transition
                 appear
                 v-on:before-appear="beforeAppear"
@@ -15,26 +15,31 @@
                 name="fade"
                 mode="out-in"
         >
-            <div id="declaration" class="declaration flex flex-col justify-center">
+            <div id="declaration" class="
+            declaration flex flex-col justify-center text-center md:text-left w-full"
+            >
                 <h4 id="removeTitle">Welcome to</h4>
-                <a href="samhop.co.uk"><h1 id="mainTitle" class="title font-bold text-6xl">SamHop.co.uk</h1></a>
+                <a href="index.html"><h1 id="mainTitle" class="title font-bold text-6xl">SamHop.co.uk</h1></a>
                 <p id="removeTag">A portfolio for Sam Hopkinson</p>
             </div>
         </transition>
-        <!-- align items: center; -->
-        <div id="menu" class="hidden flex flex-row items-center md:w-56 justify-between">
+
+        <!-- Menu -->
+        <div id="menu" class="hidden flex flex-row items-center w-full md:w-56 justify-around md:justify-between">
             <a href="#">CV</a>
             <a href="#">LinkedIn</a>
             <a href="#">Contact</a>
         </div>
+
     </div>
 
-    <!-- TODO: What format should the content take? -->
-    <!-- Option 1: A carousel -->
-    <!-- Option 2: A series of static cards -->
-    <!-- Option 3: An accordion a la PTP. -->
-    <!-- Option 4: Something else? -->
-    <div class="container flex justify-around">
+    <div id="underline" class="container flex flex-col justify-center items-center align-center opacity-0">
+        <div class="w-full bg-black h-px"></div>
+        <div class="mt-1 w-4/5 bg-black h-px"></div>
+    </div>
+
+    <!-- Project Cards -->
+    <div class="container flex justify-around h-74 items-center">
         <div class="staggerCard flex flex-col bg-green-400 w-1/4 h-64 opacity-0">
             <a class="flex flex-col" href="#"><img src="https://via.placeholder.com/150"></a>
         </div>

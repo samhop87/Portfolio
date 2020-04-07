@@ -16,6 +16,7 @@ new Vue({
             let removeTag = document.getElementById("removeTag")
             let menu = document.getElementById("menu")
             let mainTitle = document.getElementById("mainTitle")
+            let underline = document.getElementById("underline")
 
             setTimeout(function () {
                 Velocity(
@@ -27,7 +28,7 @@ new Vue({
             setTimeout(function () {
                 // Performing landing animation
                 title.classList.remove("h-full")
-                title.classList.add('h-40')
+                title.classList.add('h-24')
                 mainTitle.classList.remove("text-6xl")
                 mainTitle.classList.add('text-4xl')
                 removeTitle.classList.add("hidden")
@@ -43,6 +44,11 @@ new Vue({
                 Velocity(titleChild, { opacity: 0.7})
                 Velocity(menu, {opacity: 0.7})
             }, 1000)
+
+            setTimeout(function () {
+                // Fade in the underline
+                Velocity(underline, { opacity: 0.8})
+            }, 1250)
 
             setTimeout(function() {
                 ref.displayCards()
