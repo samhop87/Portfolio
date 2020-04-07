@@ -7,8 +7,7 @@
 </head>
 <body>
 <div class="h-screen w-screen">
-
-    <div class="container flex h-full" id="title" v-cloak>
+    <div class="container flex h-full justify-between" id="title" v-cloak>
         <transition
                 appear
                 v-on:before-appear="beforeAppear"
@@ -18,16 +17,35 @@
         >
             <div id="declaration" class="declaration flex flex-col justify-center">
                 <h4 id="removeTitle">Welcome to</h4>
-                <h1 class="title font-bold text-6xl">SamHop.co.uk</h1>
+                <a href="samhop.co.uk"><h1 id="mainTitle" class="title font-bold text-6xl">SamHop.co.uk</h1></a>
                 <p id="removeTag">A portfolio for Sam Hopkinson</p>
             </div>
         </transition>
-        <div id="menu" class="hidden">
-            <a href="#">This</a>
-            <a href="#">That</a>
-            <a href="#">And What</a>
+        <!-- align items: center; -->
+        <div id="menu" class="hidden flex flex-row items-center md:w-56 justify-between">
+            <a href="#">CV</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Contact</a>
         </div>
     </div>
+
+    <!-- TODO: What format should the content take? -->
+    <!-- Option 1: A carousel -->
+    <!-- Option 2: A series of static cards -->
+    <!-- Option 3: An accordion a la PTP. -->
+    <!-- Option 4: Something else? -->
+    <div class="container flex justify-around">
+        <div class="staggerCard flex flex-col bg-green-400 w-1/4 h-64 opacity-0">
+            <a class="flex flex-col" href="#"><img src="https://via.placeholder.com/150"></a>
+        </div>
+        <div class="staggerCard flex flex-col bg-green-400 w-1/4 h-64 opacity-0">
+            <a class="flex flex-col" href="#"><img src="https://via.placeholder.com/150"></a>
+        </div>
+        <div class="staggerCard flex flex-col bg-green-400 w-1/4 h-64 opacity-0">
+            <a class="flex flex-col" href="#"><img src="https://via.placeholder.com/150"></a>
+        </div>
+    </div>
+
 </div>
 
 </body>

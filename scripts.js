@@ -8,11 +8,14 @@ new Vue({
             // document.getElementById("title").style.color = "blue"
         },
         afterAppear: function(element) {
-            let title = document.getElementById("title");
-            let titleChild = document.getElementById("declaration");
-            let removeTitle = document.getElementById("removeTitle");
-            let removeTag = document.getElementById("removeTag");
-            let menu = document.getElementById("menu");
+            let ref = this
+
+            let title = document.getElementById("title")
+            let titleChild = document.getElementById("declaration")
+            let removeTitle = document.getElementById("removeTitle")
+            let removeTag = document.getElementById("removeTag")
+            let menu = document.getElementById("menu")
+            let mainTitle = document.getElementById("mainTitle")
 
             setTimeout(function () {
                 Velocity(
@@ -22,20 +25,40 @@ new Vue({
             }, 0)
 
             setTimeout(function () {
+                // Performing landing animation
                 title.classList.remove("h-full")
-                titleChild.classList.add("mt-8")
-                menu.classList.add("mt-8")
+                title.classList.add('h-40')
+                mainTitle.classList.remove("text-6xl")
+                mainTitle.classList.add('text-4xl')
                 removeTitle.classList.add("hidden")
                 removeTag.classList.add("hidden")
+
+                // Displaying the menu
                 menu.style.opacity = "0";
                 menu.classList.remove("hidden")
                 }, 500)
 
             setTimeout(function () {
-                Velocity(titleChild, { opacity: 0.5})
-                Velocity(menu, {opacity: 0.5})
-
+                // Fade top menu back in, plus options.
+                Velocity(titleChild, { opacity: 0.7})
+                Velocity(menu, {opacity: 0.7})
             }, 1000)
+
+            setTimeout(function() {
+                ref.displayCards()
+            }, 1500)
+
+
+        },
+        displayCards: function() {
+            let delay = 500;
+
+            const staggerCards = document.querySelectorAll(".staggerCard");
+            for (let i = 0; i < staggerCards.length; i++) {
+                setTimeout(function() {
+                    Velocity(staggerCards[i], { opacity: 1 })
+                }, delay * [i])
+            }
         }
     }
 })
