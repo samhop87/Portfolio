@@ -51,20 +51,35 @@ new Vue({
             }, 1250)
 
             setTimeout(function() {
-                ref.displayCards()
+                ref.displayCards(ref)
             }, 1500)
 
 
         },
-        displayCards: function() {
+        displayCards: function(ref) {
             let delay = 500;
 
             const staggerCards = document.querySelectorAll(".staggerCard");
             for (let i = 0; i < staggerCards.length; i++) {
+                if (i == staggerCards.length -1) {
+                    var wait = delay * [i]
+                    console.log(wait)
+                }
                 setTimeout(function() {
                     Velocity(staggerCards[i], { opacity: 1 })
                 }, delay * [i])
             }
+            // Display the cookie bar after all the cards have been displayed.
+            setTimeout(function(wait) {
+                ref.displayCookie(wait)
+            }, wait + 1000)
+        },
+        displayCookie: function(wait) {
+            // Display the cookie bar
+            let cookieBar = document.getElementById("cookie-consent")
+            setTimeout(function() {
+                Velocity(cookieBar, {opacity: 1})
+            }, 250)
         }
     }
 })
