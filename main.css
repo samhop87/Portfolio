@@ -17,11 +17,6 @@ body {
     background-color: orange;
 }
 
-.peter {
-    background: url("images/logo.png") no-repeat;
-    background-size: contain;
-}
-
 .h-74 {
     height: 20rem;
 }
@@ -29,8 +24,6 @@ body {
 .h-86 {
     height: 24rem;
 }
-
-/* END OF SITE STYLES */
 
 .title {
     font-family: 'Monoton', 'cursive';
@@ -48,4 +41,11 @@ body {
 
 [v-cloak] {
     display: none;
+}
+
+/* CARD BACKGROUND IMAGES */
+
+.peter {
+    background: url("images/logo.png") no-repeat center;
+    background-size: contain;
 }

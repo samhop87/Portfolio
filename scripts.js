@@ -70,7 +70,6 @@ new Vue({
             for (let i = 0; i < staggerCards.length; i++) {
                 if (i == staggerCards.length -1) {
                     var wait = delay * [i]
-                    console.log(wait)
                 }
                 setTimeout(function() {
                     Velocity(staggerCards[i], { opacity: 1 })
