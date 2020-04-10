@@ -13964,13 +13964,10 @@ body {
   background-color: orange;
 }
 
-/*.container {*/
-
-/*    width: 80vw;*/
-
-/*    margin: 0 auto;*/
-
-/*}*/
+.peter {
+  background: url("images/logo.png") no-repeat;
+  background-size: contain;
+}
 
 .h-74 {
   height: 20rem;

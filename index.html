@@ -40,25 +40,37 @@
     </div>
 
     <div id="project-title" class="container mx-auto my-6 w-4/5 hidden opacity-0">
-        <h1 class="font-semibold text-2xl text-center">Projects</h1>
+        <h1 class="font-semibold text-2xl text-center underline">Projects</h1>
     </div>
 
     <!-- Project Cards -->
-    <div id="card-container" class="container w-4/5 mx-auto flex justify-around my-4 items-center flex-wrap hidden">
-        <div class="staggerCard mx-4 flex flex-col bg-white w-2/3 md:w-2/5 opacity-0 rounded-lg">
+    <div id="card-container"
+         class="max-h-screen container w-4/5 mx-auto flex justify-around my-4 items-center flex-wrap hidden">
+        <div class="staggerCard mx-4 my-4 flex flex-col bg-white w-full md:w-2/5 opacity-0 rounded-lg">
             <a class="flex flex-col" href="#">
-                <img class="w-full h-auto" src="images/logo.png">
+                <div class="peter h-32"></div>
             </a>
-            <div class="flex flex-col container my-4 mx-auto w-11/12 text-center">
-                <h5 class="font-semibold">
-                    petertheplantsman.co.uk
-                </h5>
-                <div class="flex flex-col w-4/5 my-1 mx-auto items-center">
-                    <a href="https://github.com/peterplantsman/website" class="h-auto w-1/6"><img class="w-full h-auto" src="images/github.svg" alt="github link"></a>
+            <div class="flex flex-col container my-4 mx-auto w-11/12 text-center h-74 justify-between">
+                <div>
+                    <h5 class="font-semibold">
+                        petertheplantsman.co.uk
+                    </h5>
                 </div>
-                <p class="my-4">
-                    Full website build and deployment, on-going management
-                </p>
+
+                <div class="flex flex-col w-4/5 my-1 mx-auto items-center">
+                    <a href="https://github.com/peterplantsman/website" class="h-auto w-1/6">
+                        <img class="w-full h-auto"
+                             src="images/github.svg"
+                             alt="github link">
+                    </a>
+                </div>
+
+                <div>
+                    <p class="my-4">
+                        Full website build and deployment, on-going management
+                    </p>
+                </div>
+
                 <div class="flex flex-col my-4">
                     <p class="italic">Technologies:</p>
                     <div class="flex flex-row h-6 w-2/3 my-4 mx-auto justify-center">
@@ -70,42 +82,110 @@
                 </div>
             </div>
         </div>
-        <div class="staggerCard mx-4 flex flex-col bg-white w-1/4 md:w-2/5 opacity-0 rounded-lg">
+        <div class="staggerCard mx-4 my-4 flex flex-col bg-white w-2/3 md:w-2/5 opacity-0 rounded-lg">
             <a class="flex flex-col" href="#">
-                <img class="w-full h-auto" src="https://via.placeholder.com/150">
+                <div class=" h-32"></div>
             </a>
-            <div class="flex flex-col container my-4 mx-auto w-11/12 text-center">
-                <h5 class="font-semibold">
-title of project                </h5>
-                <div class="flex flex-col w-4/5 my-1 mx-auto items-center">
-                    <a href="#" class="h-auto w-1/6"><img class="w-full h-auto" src="images/github.svg" alt="github link"></a>
+            <div class="flex flex-col container my-4 mx-auto w-11/12 text-center h-74 justify-between">
+                <div>
+                    <h5 class="font-semibold">
+                        title of site
+                    </h5>
                 </div>
-                <p class="my-4">
-project description                </p>
+
+                <div class="flex flex-col w-4/5 my-1 mx-auto items-center">
+                    <a href="" class="h-auto w-1/6">
+                        <img class="w-full h-auto"
+                             src="images/github.svg"
+                             alt="github link">
+                    </a>
+                </div>
+
+                <div>
+                    <p class="my-4">
+                        description of work done/ who for etc. </p>
+                </div>
+
                 <div class="flex flex-col my-4">
                     <p class="italic">Technologies:</p>
                     <div class="flex flex-row h-6 w-2/3 my-4 mx-auto justify-center">
+                        <img class="w-1/5 h-auto" src="images/mysql.svg">
+                        <img class="w-1/5 h-auto" src="images/vue.svg">
                         <img class="w-1/5 h-auto" src="images/laravel.svg">
                         <img class="w-1/5 h-auto" src="images/php.svg">
-                        <img class="w-1/5 h-auto" src="images/vue.svg">
-                        <img class="w-1/5 h-auto" src="images/mysql.svg">
                     </div>
                 </div>
             </div>
         </div>
-        <div class="staggerCard mx-4 flex flex-col bg-white w-1/2 md:w-1/4 opacity-0 rounded-lg">
-            <a class="flex flex-col" href="#"><img class="w-full h-auto" src="https://via.placeholder.com/150"></a>
-            <div class="flex flex-col h-48">
-                <h6>
-                    Title of Project
-                </h6>
-                <p>
-                    This is the text that goes with a project.
-                </p>
+        <div class="staggerCard mx-4 my-4 flex flex-col bg-white w-2/3 md:w-2/5 opacity-0 rounded-lg">
+            <a class="flex flex-col" href="#">
+                <div class=" h-32"></div>
+            </a>
+            <div class="flex flex-col container my-4 mx-auto w-11/12 text-center h-74 justify-between">
+                <div>
+                    <h5 class="font-semibold">
+                        title of site </h5>
+                </div>
+
+                <div class="flex flex-col w-4/5 my-1 mx-auto items-center">
+                    <a href="" class="h-auto w-1/6">
+                        <img class="w-full h-auto"
+                             src="images/github.svg"
+                             alt="github link">
+                    </a>
+                </div>
+
+                <div>
+                    <p class="my-4">
+                        description of work </p>
+                </div>
+
+                <div class="flex flex-col my-4">
+                    <p class="italic">Technologies:</p>
+                    <div class="flex flex-row h-6 w-2/3 my-4 mx-auto justify-center">
+                        <img class="w-1/5 h-auto" src="images/html.svg">
+                        <img class="w-1/5 h-auto" src="images/css.svg">
+                        <img class="w-1/5 h-auto" src="images/javascript.svg">
+                        <img class="w-1/5 h-auto" src="images/vue.svg">
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="staggerCard mx-4 flex flex-col bg-white w-1/2 md:w-1/4 opacity-0 rounded-lg">
-            <a class="flex flex-col" href="#"><img class="w-full h-auto" src="https://via.placeholder.com/150"></a>
+        <div class="staggerCard mx-4 my-4 flex flex-col bg-white w-2/3 md:w-2/5 opacity-0 rounded-lg">
+            <a class="flex flex-col" href="#">
+                <div class="peter h-32"></div>
+            </a>
+            <div class="flex flex-col container my-4 mx-auto w-11/12 text-center h-74 justify-between">
+                <div>
+                    <h5 class="font-semibold">
+                        petertheplantsman.co.uk
+                    </h5>
+                </div>
+
+                <div class="flex flex-col w-4/5 my-1 mx-auto items-center">
+                    <a href="https://github.com/peterplantsman/website" class="h-auto w-1/6">
+                        <img class="w-full h-auto"
+                             src="images/github.svg"
+                             alt="github link">
+                    </a>
+                </div>
+
+                <div>
+                    <p class="my-4">
+                        Full website build and deployment, on-going management
+                    </p>
+                </div>
+
+                <div class="flex flex-col my-4">
+                    <p class="italic">Technologies:</p>
+                    <div class="flex flex-row h-6 w-2/3 my-4 mx-auto justify-center">
+                        <img class="w-1/5 h-auto" src="images/html.svg">
+                        <img class="w-1/5 h-auto" src="images/css.svg">
+                        <img class="w-1/5 h-auto" src="images/javascript.svg">
+                        <img class="w-1/5 h-auto" src="images/vue.svg">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
