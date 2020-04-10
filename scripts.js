@@ -17,6 +17,8 @@ new Vue({
             let menu = document.getElementById("menu")
             let mainTitle = document.getElementById("mainTitle")
             let underline = document.getElementById("underline")
+            let cardContainer = document.getElementById("card-container")
+            let projectTitle = document.getElementById("project-title")
 
             setTimeout(function () {
                 Velocity(
@@ -33,6 +35,10 @@ new Vue({
                 mainTitle.classList.add('text-4xl')
                 removeTitle.classList.add("hidden")
                 removeTag.classList.add("hidden")
+                cardContainer.classList.remove("hidden")
+                projectTitle.classList.remove("hidden")
+
+
 
                 // Displaying the menu
                 menu.style.opacity = "0";
@@ -51,6 +57,7 @@ new Vue({
             }, 1250)
 
             setTimeout(function() {
+                Velocity(projectTitle, { opacity: 1 })
                 ref.displayCards(ref)
             }, 1500)
 

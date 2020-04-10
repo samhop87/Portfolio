@@ -39,8 +39,12 @@
         <div class="mt-1 w-4/5 bg-black h-px"></div>
     </div>
 
+    <div id="project-title" class="container mx-auto my-6 w-4/5 hidden opacity-0">
+        <h1 class="font-semibold text-2xl text-center">Projects</h1>
+    </div>
+
     <!-- Project Cards -->
-    <div class="container w-4/5 mx-auto flex justify-around my-4 items-center flex-wrap">
+    <div id="card-container" class="container w-4/5 mx-auto flex justify-around my-4 items-center flex-wrap hidden">
         <div class="staggerCard mx-4 flex flex-col bg-white w-2/3 md:w-2/5 opacity-0 rounded-lg">
             <a class="flex flex-col" href="#">
                 <img class="w-full h-auto" src="images/logo.png">
@@ -106,7 +110,7 @@ project description                </p>
     </div>
 
     <!-- COOKIE CONSENT BAR -->
-    <div id="cookie-consent" class="opacity-0 bg-orange-600">
+    <div id="cookie-consent" class="opacity-0 bg-orange-600 hidden">
         <div class="container w-4/5 mx-auto py-3 flex">
             <div class="flex flex-col w-3/4">
                 <h3 class="text-lg font-semibold">Cookie Notice</h3>
