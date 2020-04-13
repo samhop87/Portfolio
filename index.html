@@ -41,6 +41,19 @@
 
     <div id="contact-form" class="container mx-auto my-6 w-4/5 hidden opacity-0">
         <h1 class="font-semibold text-2xl text-center underline">Contact</h1>
+        <div class="contact container mx-auto w-3/4">
+            <form class="form flex flex-col justify-around" method="POST" action="https://formspree.io/s.hopkinson87@gmail.com">
+                <input class="p-2 my-2 rounded-lg" placeholder="Name*" name="name" required>
+                <input class="p-2 my-2 rounded-lg" placeholder="Email*" name="_replyto" required>
+                <input class="p-2 my-2 rounded-lg" placeholder="Phone" name="phone">
+                <textarea class="p-2 my-2 rounded-lg" placeholder="Tell me a little about your project!" name="project message"></textarea>
+                <div class="hidden">
+                    <label>Leave this field empty: <input name="_gotcha"></label>
+                </div>
+                <input class="cursor-pointer font-semibold container mx-auto p-2 my-2 md:w-1/4 w-1/2 rounded-lg" type="submit" value="Submit">
+                <small>Starred fields are required</small>
+            </form>
+        </div>
     </div>
 
     <div id="project-title" class="container mx-auto my-6 w-4/5 hidden opacity-0">
