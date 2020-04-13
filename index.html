@@ -27,8 +27,8 @@
         <!-- Menu -->
         <div id="menu" class="hidden flex flex-row items-center w-full md:w-56 justify-around md:justify-between">
             <a href="#">CV</a>
-            <a href="#">LinkedIn</a>
-            <a href="#">Contact</a>
+            <a href="https://www.linkedin.com/in/sam-hopkinson-38a5a052/" target="_blank" rel="nofollow">LinkedIn</a>
+            <a @click="contactDisplay" href="#">Contact</a>
         </div>
 
     </div>
@@ -37,6 +37,10 @@
          class="container w-4/5 mx-auto flex flex-col justify-center items-center align-center opacity-0">
         <div class="w-full bg-black h-px"></div>
         <div class="mt-1 w-4/5 bg-black h-px"></div>
+    </div>
+
+    <div id="contact-form" class="container mx-auto my-6 w-4/5 hidden opacity-0">
+        <h1 class="font-semibold text-2xl text-center underline">Contact</h1>
     </div>
 
     <div id="project-title" class="container mx-auto my-6 w-4/5 hidden opacity-0">

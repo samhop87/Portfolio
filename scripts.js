@@ -1,13 +1,12 @@
 new Vue({
     el: '#title',
-    data: {
-    },
+    data: {},
     methods: {
-        beforeAppear: function(element) {
+        beforeAppear: function (element) {
             // This can change the appearance of the title on load.
             // document.getElementById("title").style.color = "blue"
         },
-        afterAppear: function(element) {
+        afterAppear: function (element) {
             let ref = this
 
             let title = document.getElementById("title")
@@ -23,7 +22,7 @@ new Vue({
             setTimeout(function () {
                 Velocity(
                     titleChild,
-                    { opacity: 0 }
+                    {opacity: 0}
                 )
             }, 0)
 
@@ -38,54 +37,88 @@ new Vue({
                 cardContainer.classList.remove("hidden")
                 projectTitle.classList.remove("hidden")
 
-
-
                 // Displaying the menu
                 menu.style.opacity = "0";
                 menu.classList.remove("hidden")
-                }, 500)
+            }, 500)
 
             setTimeout(function () {
                 // Fade top menu back in, plus options.
-                Velocity(titleChild, { opacity: 0.7})
+                Velocity(titleChild, {opacity: 0.7})
                 Velocity(menu, {opacity: 0.7})
             }, 1000)
 
             setTimeout(function () {
                 // Fade in the underline
-                Velocity(underline, { opacity: 0.8})
+                Velocity(underline, {opacity: 0.8})
             }, 1250)
 
-            setTimeout(function() {
-                Velocity(projectTitle, { opacity: 1 })
+            setTimeout(function () {
+                Velocity(projectTitle, {opacity: 1})
                 ref.displayCards(ref)
             }, 1500)
-
-
         },
-        displayCards: function(ref) {
+        displayCards: function (ref) {
             let delay = 500;
 
             const staggerCards = document.querySelectorAll(".staggerCard");
             for (let i = 0; i < staggerCards.length; i++) {
-                if (i == staggerCards.length -1) {
+                if (i == staggerCards.length - 1) {
                     var wait = delay * [i]
                 }
-                setTimeout(function() {
-                    Velocity(staggerCards[i], { opacity: 1 })
+                setTimeout(function () {
+                    Velocity(staggerCards[i], {opacity: 1})
                 }, delay * [i])
             }
             // Display the cookie bar after all the cards have been displayed.
-            setTimeout(function(wait) {
+            setTimeout(function (wait) {
                 ref.displayCookie(wait)
             }, wait + 1000)
         },
-        displayCookie: function(wait) {
+        displayCookie: function (wait) {
             // Display the cookie bar
             let cookieBar = document.getElementById("cookie-consent")
-            setTimeout(function() {
+            setTimeout(function () {
                 Velocity(cookieBar, {opacity: 1})
             }, 250)
+        },
+        contactDisplay: function () {
+            let title = document.getElementById("project-title")
+            let cards = document.getElementById("card-container")
+            let contact = document.getElementById("contact-form")
+
+            switch (parseInt(title.style.opacity)) {
+                case 0:
+                    // Hide contact form
+                    setTimeout( function () {
+                        Velocity(contact, {opacity: 0})
+                    }, 200)
+                    contact.classList.add("hidden")
+
+                    // Re-display cards and title
+                    title.classList.remove("hidden")
+                    cards.classList.remove("hidden")
+                    setTimeout(function () {
+                        Velocity(title, {opacity: 1})
+                        Velocity(cards, {opacity: 1})
+                    }, 200)
+                    break;
+                case 1:
+                    // Hide the cards and title
+                    setTimeout(function () {
+                        Velocity(title, {opacity: 0})
+                        Velocity(cards, {opacity: 0})
+                    }, 200)
+                    title.classList.add("hidden")
+                    cards.classList.add("hidden")
+
+                    // Display the contact form
+                    contact.classList.remove("hidden")
+                    setTimeout(function () {
+                        Velocity(contact, {opacity: 1})
+                    }, 200)
+                    break;
+            }
         }
     }
 })
