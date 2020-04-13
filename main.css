@@ -29,6 +29,10 @@ body {
     font-family: 'Monoton', 'cursive';
 }
 
+.submission:hover {
+    background-color:  #e65c00;
+}
+
 /* TRANSITIONS */
 
 .fade-enter-active {

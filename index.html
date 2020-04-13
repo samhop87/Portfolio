@@ -5,7 +5,7 @@
     <link rel=stylesheet href="output.css">
     <link href="https://fonts.googleapis.com/css?family=Monoton&display=swap" rel="stylesheet">
 </head>
-<body>
+<body onload="checkCookie()">
 <div class="w-full h-screen">
     <div class="container w-4/5 mx-auto flex h-full justify-between flex-wrap md:flex-no-wrap" id="title" v-cloak>
         <transition
@@ -42,15 +42,18 @@
     <div id="contact-form" class="container mx-auto my-6 w-4/5 hidden opacity-0">
         <h1 class="font-semibold text-2xl text-center underline">Contact</h1>
         <div class="contact container mx-auto w-3/4">
-            <form class="form flex flex-col justify-around" method="POST" action="https://formspree.io/s.hopkinson87@gmail.com">
+            <form class="form flex flex-col justify-around my-2" method="POST"
+                  action="https://formspree.io/s.hopkinson87@gmail.com">
                 <input class="p-2 my-2 rounded-lg" placeholder="Name*" name="name" required>
                 <input class="p-2 my-2 rounded-lg" placeholder="Email*" name="_replyto" required>
                 <input class="p-2 my-2 rounded-lg" placeholder="Phone" name="phone">
-                <textarea class="p-2 my-2 rounded-lg" placeholder="Tell me a little about your project!" name="project message"></textarea>
+                <textarea class="p-2 my-2 rounded-lg" placeholder="Tell me a little about your project!"
+                          name="project message"></textarea>
                 <div class="hidden">
                     <label>Leave this field empty: <input name="_gotcha"></label>
                 </div>
-                <input class="cursor-pointer font-semibold container mx-auto p-2 my-2 md:w-1/4 w-1/2 rounded-lg" type="submit" value="Submit">
+                <input class="submission cursor-pointer font-semibold container mx-auto p-2 my-2 md:w-1/4 w-1/2 rounded-lg"
+                       type="submit" value="Submit">
                 <small>Starred fields are required</small>
             </form>
         </div>
@@ -120,7 +123,8 @@
 
                 <div>
                     <p class="my-4">
-                        description of work done/ who for etc. </p>
+                        description of work done/ who for etc.
+                    </p>
                 </div>
 
                 <div class="flex flex-col my-4">
@@ -141,7 +145,8 @@
             <div class="flex flex-col container my-4 mx-auto w-11/12 text-center h-74 justify-between">
                 <div>
                     <h5 class="font-semibold">
-                        title of site </h5>
+                        title of site
+                    </h5>
                 </div>
 
                 <div class="flex flex-col w-4/5 my-1 mx-auto items-center">
@@ -154,7 +159,8 @@
 
                 <div>
                     <p class="my-4">
-                        description of work </p>
+                        description of work
+                    </p>
                 </div>
 
                 <div class="flex flex-col my-4">
@@ -189,7 +195,8 @@
 
                 <div>
                     <p class="my-4">
-                        description of work </p>
+                        description of work
+                    </p>
                 </div>
 
                 <div class="flex flex-col my-4">
