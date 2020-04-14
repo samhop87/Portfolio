@@ -1,51 +1,50 @@
 new Vue({
     el: '#title',
     data: {},
+    created() {
+        this.$cookies.set('animation', 'true', 0);
+    },
+    mounted() {
+       // console.log(this.$refs)
+    },
     methods: {
         beforeAppear: function (element) {
-            // This can change the appearance of the title on load.
-            // document.getElementById("title").style.color = "blue"
+            // console.log(this.$refs)
         },
         afterAppear: function (element) {
             let ref = this
 
-            let title = document.getElementById("title")
-            let titleChild = document.getElementById("declaration")
-            let removeTitle = document.getElementById("removeTitle")
-            let removeTag = document.getElementById("removeTag")
-            let menu = document.getElementById("menu")
-            let mainTitle = document.getElementById("mainTitle")
             let underline = document.getElementById("underline")
             let cardContainer = document.getElementById("card-container")
             let projectTitle = document.getElementById("project-title")
 
             setTimeout(function () {
                 Velocity(
-                    titleChild,
+                    ref.$refs.declaration,
                     {opacity: 0}
                 )
             }, 0)
 
             setTimeout(function () {
                 // Performing landing animation
-                title.classList.remove("h-full")
-                title.classList.add('h-24')
-                mainTitle.classList.remove("text-6xl")
-                mainTitle.classList.add('text-4xl')
-                removeTitle.classList.add("hidden")
-                removeTag.classList.add("hidden")
+                ref.$refs.title.classList.remove("h-full")
+                ref.$refs.title.classList.add('h-24')
+                ref.$refs.mainTitle.classList.remove("text-6xl")
+                ref.$refs.mainTitle.classList.add('text-4xl')
+                ref.$refs.removeTitle.classList.add("hidden")
+                ref.$refs.removeTag.classList.add("hidden")
                 cardContainer.classList.remove("hidden")
                 projectTitle.classList.remove("hidden")
 
                 // Displaying the menu
-                menu.style.opacity = "0";
-                menu.classList.remove("hidden")
+                ref.$refs.menu.style.opacity = "0";
+                ref.$refs.menu.classList.remove("hidden")
             }, 500)
 
             setTimeout(function () {
                 // Fade top menu back in, plus options.
-                Velocity(titleChild, {opacity: 0.7})
-                Velocity(menu, {opacity: 0.7})
+                Velocity(ref.$refs.declaration, {opacity: 0.7})
+                Velocity(ref.$refs.menu, {opacity: 0.7})
             }, 1000)
 
             setTimeout(function () {

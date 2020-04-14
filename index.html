@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>SamHop</title>
     <link rel=stylesheet href="output.css">
     <link href="https://fonts.googleapis.com/css?family=Monoton&display=swap" rel="stylesheet">
 </head>
-<body onload="checkCookie()">
+
+<body>
+
 <div class="w-full h-screen">
-    <div class="container w-4/5 mx-auto flex h-full justify-between flex-wrap md:flex-no-wrap" id="title" v-cloak>
+    <div class="container w-4/5 mx-auto flex h-full justify-between flex-wrap md:flex-no-wrap"
+         id="title" ref="title" v-cloak>
         <transition
                 appear
                 v-on:before-appear="beforeAppear"
@@ -15,17 +19,19 @@
                 name="fade"
                 mode="out-in"
         >
-            <div id="declaration" class="
+            <div ref="declaration" class="
             declaration flex flex-col justify-center text-center md:text-left w-full"
             >
-                <h4 id="removeTitle">Welcome to</h4>
-                <a href="index.html"><h1 id="mainTitle" class="title font-bold text-6xl">SamHop.co.uk</h1></a>
-                <p id="removeTag">A portfolio for Sam Hopkinson</p>
+                <h4 ref="removeTitle">Welcome to</h4>
+                <a href="index.html"><h1 ref="mainTitle" id="mainTitle" class="title font-bold text-6xl">
+                    SamHop.co.uk
+                </h1></a>
+                <p ref="removeTag">A portfolio for Sam Hopkinson</p>
             </div>
         </transition>
 
         <!-- Menu -->
-        <div id="menu" class="hidden flex flex-row items-center w-full md:w-56 justify-around md:justify-between">
+        <div ref="menu" class="hidden flex flex-row items-center w-full md:w-56 justify-around md:justify-between">
             <a href="#">CV</a>
             <a href="https://www.linkedin.com/in/sam-hopkinson-38a5a052/" target="_blank" rel="nofollow">LinkedIn</a>
             <a @click="contactDisplay" href="#">Contact</a>
@@ -64,9 +70,9 @@
     </div>
 
     <!-- Project Cards -->
-    <div id="card-container"
+    <div ref="cardContainer" id="card-container"
          class="max-h-screen container w-4/5 mx-auto flex justify-around my-4 items-center flex-wrap hidden">
-        <div class="staggerCard mx-4 my-4 flex flex-col bg-white w-full md:w-2/5 opacity-0 rounded-lg">
+        <div class="staggerCard mx-4 my-4 flex flex-col bg-white w-full md:w-2/5 lg:w-1/4 opacity-0 rounded-lg">
             <a class="flex flex-col" href="#">
                 <div class="peter h-32"></div>
             </a>
@@ -102,7 +108,7 @@
                 </div>
             </div>
         </div>
-        <div class="staggerCard mx-4 my-4 flex flex-col bg-white w-2/3 md:w-2/5 opacity-0 rounded-lg">
+        <div class="staggerCard mx-4 my-4 flex flex-col bg-white w-full md:w-2/5 lg:w-1/4 opacity-0 rounded-lg">
             <a class="flex flex-col" href="#">
                 <div class=" h-32"></div>
             </a>
@@ -138,7 +144,7 @@
                 </div>
             </div>
         </div>
-        <div class="staggerCard mx-4 my-4 flex flex-col bg-white w-2/3 md:w-2/5 opacity-0 rounded-lg">
+        <div class="staggerCard mx-4 my-4 flex flex-col bg-white w-full md:w-2/5 lg:w-1/4 opacity-0 rounded-lg">
             <a class="flex flex-col" href="#">
                 <div class=" h-32"></div>
             </a>
@@ -174,7 +180,7 @@
                 </div>
             </div>
         </div>
-        <div class="staggerCard mx-4 my-4 flex flex-col bg-white w-2/3 md:w-2/5 opacity-0 rounded-lg">
+        <div class="staggerCard mx-4 my-4 flex flex-col bg-white w-full md:w-2/5 lg:w-1/4 opacity-0 rounded-lg">
             <a class="flex flex-col" href="#">
                 <div class=" h-32"></div>
             </a>
@@ -234,7 +240,7 @@
 
 </body>
 <script src="vue.js"></script>
+<script src="https://unpkg.com/vue-cookies@1.7.0/vue-cookies.js"></script>
 <script src="velocity.js"></script>
 <script src="scripts.js"></script>
-<script src="cookie.js"></script>
 </html>
