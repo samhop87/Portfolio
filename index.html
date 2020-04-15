@@ -12,10 +12,10 @@
 <div class="w-full h-screen">
     <div class="container w-4/5 mx-auto flex h-full justify-between flex-wrap md:flex-no-wrap"
          id="title" ref="title" v-cloak>
+
         <transition
                 appear
                 @enter="killTransition"
-                @leave="killTransition"
                 v-on:before-appear="beforeAppear"
                 v-on:after-appear="afterAppear"
                 name="fade"

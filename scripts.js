@@ -3,24 +3,26 @@ new Vue({
     data: {
         cookie: false
     },
-    created() {
-        if (this.$cookies && this.$cookies.get('test')) {
-            this.cookie = true
-        }
-    },
-    mounted() {
-        // console.log(this.$refs)
-    },
     methods: {
         cookieClose: function () {
-            console.log("this hits")
-          this.cookie = !this.cookie
+
+            
         },
-        killTransition: function () {
-            alert("this fires")
+        killTransition: function (el, done) {
+            if (this.cookie) {
+                this.$refs.title.classList.add("hidden")
+                done()
+            }
         },
         beforeAppear: function (element) {
-            // console.log(this.$refs)
+            let refer = this
+
+            if (this.$cookies.get('animation')) {
+                this.cookie = true
+            }
+
+            console.log(this.$cookies.get('animation'))
+
         },
         afterAppear: function (element) {
             let ref = this
@@ -28,11 +30,10 @@ new Vue({
             let projectTitle = document.getElementById("project-title")
             let cardContainer = document.getElementById("card-container")
 
-            if (!this.cookie) {
-                this.landingAnimation(cardContainer, projectTitle)
-                this.headerFadeIn(underline, projectTitle, ref)
-            }
-            this.$cookies.set('test', 'hello two')
+            ref.$cookies.set('animation', 'play', 10)
+
+            this.landingAnimation(cardContainer, projectTitle)
+            this.headerFadeIn(underline, projectTitle, ref)
 
         },
         landingAnimation: function (cardContainer, projectTitle) {
@@ -49,6 +50,11 @@ new Vue({
                 // Performing landing animation
                 ref.$refs.title.classList.remove("h-full")
                 ref.$refs.title.classList.add('h-24')
+
+                if (this.cookie) {
+                    ref.$refs.title.classList.remove("hidden")
+                }
+
                 ref.$refs.mainTitle.classList.remove("text-6xl")
                 ref.$refs.mainTitle.classList.add('text-4xl')
                 ref.$refs.removeTitle.classList.add("hidden")
@@ -100,10 +106,12 @@ new Vue({
         displayCookie: function (wait) {
             // Display the cookie bar
             let cookieBar = document.getElementById("cookie-consent")
-            console.log(test2)
+
+            // If cookie is not saved, display cookie bar.
             if (!this.cookie) {
                 cookieBar.classList.remove("hidden")
             }
+
             setTimeout(function () {
                 Velocity(cookieBar, {opacity: 1})
             }, 250)
