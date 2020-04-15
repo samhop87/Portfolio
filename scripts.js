@@ -4,7 +4,9 @@ new Vue({
         cookie: false
     },
     created() {
-
+        if (this.$cookies && this.$cookies.get('test')) {
+            this.cookie = true
+        }
     },
     mounted() {
         // console.log(this.$refs)
@@ -26,13 +28,12 @@ new Vue({
             let projectTitle = document.getElementById("project-title")
             let cardContainer = document.getElementById("card-container")
 
-            // this.$cookie.set('test', 'Hello world!', 1);
-            this.$cookies.set('test', 'hello two')
-
             if (!this.cookie) {
                 this.landingAnimation(cardContainer, projectTitle)
                 this.headerFadeIn(underline, projectTitle, ref)
             }
+            this.$cookies.set('test', 'hello two')
+
         },
         landingAnimation: function (cardContainer, projectTitle) {
             let ref = this;
@@ -99,9 +100,10 @@ new Vue({
         displayCookie: function (wait) {
             // Display the cookie bar
             let cookieBar = document.getElementById("cookie-consent")
-            let test2 = this.$cookies.get('test')
             console.log(test2)
-            cookieBar.classList.remove("hidden")
+            if (!this.cookie) {
+                cookieBar.classList.remove("hidden")
+            }
             setTimeout(function () {
                 Velocity(cookieBar, {opacity: 1})
             }, 250)
