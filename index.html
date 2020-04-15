@@ -14,6 +14,8 @@
          id="title" ref="title" v-cloak>
         <transition
                 appear
+                @enter="killTransition"
+                @leave="killTransition"
                 v-on:before-appear="beforeAppear"
                 v-on:after-appear="afterAppear"
                 name="fade"
@@ -32,7 +34,7 @@
 
         <!-- Menu -->
         <div ref="menu" class="hidden flex flex-row items-center w-full md:w-56 justify-around md:justify-between">
-            <a href="#">CV</a>
+            <a @click="cookieClose" href="#">CV</a>
             <a href="https://www.linkedin.com/in/sam-hopkinson-38a5a052/" target="_blank" rel="nofollow">LinkedIn</a>
             <a @click="contactDisplay" href="#">Contact</a>
         </div>
@@ -100,10 +102,10 @@
                 <div class="flex flex-col my-4">
                     <p class="italic">Technologies:</p>
                     <div class="flex flex-row h-6 w-2/3 my-4 mx-auto justify-center">
-                        <img class="w-1/5 h-auto" src="images/html.svg">
-                        <img class="w-1/5 h-auto" src="images/css.svg">
-                        <img class="w-1/5 h-auto" src="images/javascript.svg">
-                        <img class="w-1/5 h-auto" src="images/vue.svg">
+                        <img class="w-1/4 h-auto" src="images/html.svg">
+                        <img class="w-1/4 h-auto" src="images/css.svg">
+                        <img class="w-1/4 h-auto" src="images/javascript.svg">
+                        <img class="w-1/4 h-auto" src="images/vue.svg">
                     </div>
                 </div>
             </div>
@@ -136,10 +138,10 @@
                 <div class="flex flex-col my-4">
                     <p class="italic">Technologies:</p>
                     <div class="flex flex-row h-6 w-2/3 my-4 mx-auto justify-center">
-                        <img class="w-1/5 h-auto" src="images/mysql.svg">
-                        <img class="w-1/5 h-auto" src="images/vue.svg">
-                        <img class="w-1/5 h-auto" src="images/laravel.svg">
-                        <img class="w-1/5 h-auto" src="images/php.svg">
+                        <img class="w-1/4 h-auto" src="images/mysql.svg">
+                        <img class="w-1/4 h-auto" src="images/vue.svg">
+                        <img class="w-1/4 h-auto" src="images/laravel.svg">
+                        <img class="w-1/4 h-auto" src="images/php.svg">
                     </div>
                 </div>
             </div>
@@ -172,10 +174,10 @@
                 <div class="flex flex-col my-4">
                     <p class="italic">Technologies:</p>
                     <div class="flex flex-row h-6 w-2/3 my-4 mx-auto justify-center">
-                        <img class="w-1/5 h-auto" src="images/html.svg">
-                        <img class="w-1/5 h-auto" src="images/css.svg">
-                        <img class="w-1/5 h-auto" src="images/javascript.svg">
-                        <img class="w-1/5 h-auto" src="images/vue.svg">
+                        <img class="w-1/4 h-auto" src="images/html.svg">
+                        <img class="w-1/4 h-auto" src="images/css.svg">
+                        <img class="w-1/4 h-auto" src="images/javascript.svg">
+                        <img class="w-1/4 h-auto" src="images/vue.svg">
                     </div>
                 </div>
             </div>
@@ -208,10 +210,10 @@
                 <div class="flex flex-col my-4">
                     <p class="italic">Technologies:</p>
                     <div class="flex flex-row h-6 w-2/3 my-4 mx-auto justify-center">
-                        <img class="w-1/5 h-auto" src="images/html.svg">
-                        <img class="w-1/5 h-auto" src="images/css.svg">
-                        <img class="w-1/5 h-auto" src="images/javascript.svg">
-                        <img class="w-1/5 h-auto" src="images/vue.svg">
+                        <img class="w-1/4 h-auto" src="images/html.svg">
+                        <img class="w-1/4 h-auto" src="images/css.svg">
+                        <img class="w-1/4 h-auto" src="images/javascript.svg">
+                        <img class="w-1/4 h-auto" src="images/vue.svg">
                     </div>
                 </div>
             </div>
@@ -219,8 +221,8 @@
     </div>
 
     <!-- COOKIE CONSENT BAR -->
-    <div id="cookie-consent" class="opacity-0 bg-orange-600 hidden">
-        <div class="container w-4/5 mx-auto py-3 flex">
+    <div id="cookie-consent" class="opacity-0 bg-orange-600 fixed bottom-0 right-0 left-0">
+        <div class="container w-4/5 mx-auto py-3 flex justify-between">
             <div class="flex flex-col w-3/4">
                 <h3 class="text-lg font-semibold">Cookie Notice</h3>
                 <p class="text-xs">This page uses a cookie to check if you have visited before,
@@ -230,12 +232,13 @@
             </div>
             <div class="flex-col flex justify-center">
                 <div>
-                    <a class="flex border-orange-800 bg-orange-700 p-4 font-semibold" href="#" target="_blank">Accept
+                    <a class="flex border-orange-800 bg-orange-700 p-4 font-semibold">Accept
                         Cookies</a>
                 </div>
             </div>
         </div>
     </div>
+
 </div>
 
 </body>

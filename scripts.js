@@ -1,22 +1,38 @@
 new Vue({
     el: '#title',
-    data: {},
+    data: {
+        cookie: false
+    },
     created() {
-        this.$cookies.set('animation', 'true', 0);
+
     },
     mounted() {
-       // console.log(this.$refs)
+        // console.log(this.$refs)
     },
     methods: {
+        cookieClose: function () {
+            console.log("this hits")
+          this.cookie = !this.cookie
+        },
+        killTransition: function () {
+            alert("this fires")
+        },
         beforeAppear: function (element) {
             // console.log(this.$refs)
         },
         afterAppear: function (element) {
             let ref = this
-
             let underline = document.getElementById("underline")
-            let cardContainer = document.getElementById("card-container")
             let projectTitle = document.getElementById("project-title")
+            let cardContainer = document.getElementById("card-container")
+
+            if (!this.cookie) {
+                this.landingAnimation(cardContainer, projectTitle)
+                this.headerFadeIn(underline, projectTitle, ref)
+            }
+        },
+        landingAnimation: function (cardContainer, projectTitle) {
+            let ref = this;
 
             setTimeout(function () {
                 Velocity(
@@ -41,6 +57,8 @@ new Vue({
                 ref.$refs.menu.classList.remove("hidden")
             }, 500)
 
+        },
+        headerFadeIn: function (underline, projectTitle, ref) {
             setTimeout(function () {
                 // Fade top menu back in, plus options.
                 Velocity(ref.$refs.declaration, {opacity: 0.7})
@@ -53,6 +71,7 @@ new Vue({
             }, 1250)
 
             setTimeout(function () {
+                // Display the 'projects' title and project cards.
                 Velocity(projectTitle, {opacity: 1})
                 ref.displayCards(ref)
             }, 1500)
@@ -77,6 +96,7 @@ new Vue({
         displayCookie: function (wait) {
             // Display the cookie bar
             let cookieBar = document.getElementById("cookie-consent")
+            cookieBar.classList.remove("hidden")
             setTimeout(function () {
                 Velocity(cookieBar, {opacity: 1})
             }, 250)
@@ -89,7 +109,7 @@ new Vue({
             switch (parseInt(title.style.opacity)) {
                 case 0:
                     // Hide contact form
-                    setTimeout( function () {
+                    setTimeout(function () {
                         Velocity(contact, {opacity: 0})
                     }, 200)
                     contact.classList.add("hidden")

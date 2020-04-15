@@ -1,34 +1,43 @@
-function setCookie(cname,cvalue,exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires=" + d.toGMTString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+$(document).ready(function(){
+
+    if (getCookie('show_cookie_message') !== 'no') {
+
+        $('#cookie-consent').css('margin-right', Frontend.getScrollBarWidth() + 'px');
+        setTimeout(function() {
+            $("#cookie-consent").fadeIn(200);
+        }, 1000);
+    }
+    $(".cookie-accept").click(function() {
+        $("#cookie-consent").fadeOut(200);
+        setCookie('show_cookie_message','no');
+        return false;
+    });
+});
+
+function setCookie(cookie_name, value)
+{
+    var exdate = new Date();
+    exdate.setDate(exdate.getDate() + (365*25));
+    document.cookie = cookie_name + "=" + escape(value) + "; expires="+exdate.toUTCString() + "; path=/";
 }
 
-function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
+function getCookie(cookie_name)
+{
+    cookie_start = null;
+
+    if (document.cookie.length>0)
+    {
+        cookie_start = document.cookie.indexOf(cookie_name + "=");
+        if (cookie_start !== -1)
+        {
+            cookie_start = cookie_start + cookie_name.length+1;
+            cookie_end = document.cookie.indexOf(";",cookie_start);
+            if (cookie_end === -1)
+            {
+                cookie_end = document.cookie.length;
+            }
+            return unescape(document.cookie.substring(cookie_start,cookie_end));
         }
     }
     return "";
-}
-
-function checkCookie() {
-    var user=getCookie("username");
-    if (user != "") {
-        alert("Welcome again " + user);
-    } else {
-        user = prompt("Please enter your name:","");
-        if (user != "" && user != null) {
-            setCookie("username", user, 30);
-        }
-    }
 }
