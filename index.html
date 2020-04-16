@@ -16,7 +16,6 @@
         <transition
                 appear
                 @[enter]="killTransition"
-                v-on:before-appear="beforeAppear"
                 v-on:after-appear="afterAppear"
                 name="fade"
                 mode="out-in"
@@ -37,6 +36,26 @@
             <a href="#">CV</a>
             <a href="https://www.linkedin.com/in/sam-hopkinson-38a5a052/" target="_blank" rel="nofollow">LinkedIn</a>
             <a @click="contactDisplay" href="#">Contact</a>
+        </div>
+
+        <!-- COOKIE CONSENT BAR -->
+        <div id="cookie-consent" v-if="!cookie"
+             class="opacity-0 bg-orange-600 fixed bottom-0 right-0 left-0">
+            <div class="container w-4/5 mx-auto py-3 flex justify-between">
+                <div class="flex flex-col w-3/4">
+                    <h3 class="text-lg font-semibold">Cookie Notice</h3>
+                    <p class="text-xs">This page uses a cookie to check if you have visited before,
+                        so you don't have to watch the animation every time you open
+                        the landing page.
+                    </p>
+                </div>
+                <div class="flex-col flex justify-center">
+                    <div>
+                        <a @click="cookieClose" class="cursor-pointer flex border-orange-800 bg-orange-700 p-4 font-semibold">Accept
+                            Cookies</a>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
@@ -215,25 +234,6 @@
                         <img class="w-1/4 h-auto" src="images/javascript.svg">
                         <img class="w-1/4 h-auto" src="images/vue.svg">
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- COOKIE CONSENT BAR -->
-    <div id="cookie-consent" class="opacity-0 bg-orange-600 fixed bottom-0 right-0 left-0">
-        <div class="container w-4/5 mx-auto py-3 flex justify-between">
-            <div class="flex flex-col w-3/4">
-                <h3 class="text-lg font-semibold">Cookie Notice</h3>
-                <p class="text-xs">This page uses a cookie to check if you have visited before,
-                    so you don't have to watch the animation every time you open
-                    the landing page.
-                </p>
-            </div>
-            <div class="flex-col flex justify-center">
-                <div>
-                    <a class="flex border-orange-800 bg-orange-700 p-4 font-semibold">Accept
-                        Cookies</a>
                 </div>
             </div>
         </div>

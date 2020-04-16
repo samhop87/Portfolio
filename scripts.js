@@ -1,40 +1,18 @@
 new Vue({
     el: '#title',
     data: {
-        cookie: false,
+        cookie: this.$cookies.get('cookieRecord'),
         enter: this.$cookies.get('animation')
-    },
-    beforeCreate() {
-        // console.log("this is before create")
-        // console.log("hits before create. The cookie is", this.cookie, "the enter property is", this.enter,
-        //     "the actual cookie is", this.$cookies.get('animation'))
-        // if (this.$cookies.get('animation') === "play") {
-        //     console.log("it gets inside, and then...")
-        //     this.cookie = true
-        //     this.enter = "enter"
-        //     console.log("The cookie is", this.cookie, "the enter property is", this.enter,
-        //         "the actual cookie is", this.$cookies.get('animation'))
-        // }
     },
     methods: {
         cookieClose: function () {
-            // test
+            this.$cookies.set('cookieRecord', 'saved', 0)
+            console.log(this.cookie)
+            console.log(this.$cookies.get('cookieRecord'))
         },
         killTransition: function (el, done) {
-            console.log("hits kill transition")
             this.$refs.title.classList.add("hidden")
             done()
-        },
-        beforeAppear: function (element) {
-            // console.log("hits beforeAppear. The cookie is", this.cookie, "the enter property is", this.enter,
-            //     "the actual cookie is", this.$cookies.get('animation'))
-            // if (this.$cookies.get('animation') == "play") {
-            //     console.log("it gets inside, and then...")
-            //     this.cookie = true
-            //     this.enter = "enter"
-            //     console.log("The cookie is", this.cookie, "the enter property is", this.enter,
-            //         "the actual cookie is", this.$cookies.get('animation'))
-            // }
         },
         afterAppear: function (element) {
             let ref = this
@@ -42,7 +20,7 @@ new Vue({
             let projectTitle = document.getElementById("project-title")
             let cardContainer = document.getElementById("card-container")
 
-            ref.$cookies.set('animation', 'enter', 10)
+            ref.$cookies.set('animation', 'enter', 0)
 
             this.landingAnimation(cardContainer, projectTitle)
             this.headerFadeIn(underline, projectTitle, ref)
@@ -63,14 +41,9 @@ new Vue({
                 ref.$refs.title.classList.remove("h-full")
                 ref.$refs.title.classList.add('h-24')
 
-                if (this.enter === "enter") {
-                    console.log("gets inside the title remove")
+                if (ref.enter === "enter") {
                     ref.$refs.title.classList.remove("hidden")
                 }
-
-                // if (this.cookie) {
-                //     ref.$refs.title.classList.remove("hidden")
-                // }
 
                 ref.$refs.mainTitle.classList.remove("text-6xl")
                 ref.$refs.mainTitle.classList.add('text-4xl')
@@ -104,7 +77,8 @@ new Vue({
             }, 1500)
         },
         displayCards: function (ref) {
-            let delay = 500;
+
+            let delay = this.enter ? 1 : 500;
 
             const staggerCards = document.querySelectorAll(".staggerCard");
             for (let i = 0; i < staggerCards.length; i++) {
@@ -123,11 +97,6 @@ new Vue({
         displayCookie: function (wait) {
             // Display the cookie bar
             let cookieBar = document.getElementById("cookie-consent")
-
-            // If cookie is not saved, display cookie bar.
-            if (!this.cookie) {
-                cookieBar.classList.remove("hidden")
-            }
 
             setTimeout(function () {
                 Velocity(cookieBar, {opacity: 1})
