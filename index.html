@@ -15,7 +15,7 @@
 
         <transition
                 appear
-                @enter="killTransition"
+                @[enter]="killTransition"
                 v-on:before-appear="beforeAppear"
                 v-on:after-appear="afterAppear"
                 name="fade"
