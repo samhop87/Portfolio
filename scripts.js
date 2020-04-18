@@ -1,14 +1,13 @@
 new Vue({
     el: '#title',
     data: {
-        cookie: this.$cookies.get('cookieRecord'),
+        cookie: false,
         enter: this.$cookies.get('animation')
     },
     methods: {
         cookieClose: function () {
             this.$cookies.set('cookieRecord', 'saved', 0)
-            console.log(this.cookie)
-            console.log(this.$cookies.get('cookieRecord'))
+            this.cookie = this.$cookies.get('cookieRecord')
         },
         killTransition: function (el, done) {
             this.$refs.title.classList.add("hidden")
